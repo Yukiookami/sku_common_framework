@@ -1,0 +1,36 @@
+// 日期输入框样式
+.date-input {
+  $input-width: 100px;
+
+  display: flex;
+  align-items: center;
+
+  .date-input__item {
+    display: flex;
+    align-items: center;
+    width: $input-width;
+
+    .date-input_text {
+      margin: 0 10px;
+    }
+
+    .date-input_input {
+      width: $input-width - 30px;
+    }
+  }
+}
+
+// 日期范围输入样式
+.date-input-for-range {
+  .date-input-for-range_item {
+    display: flex;
+    align-items: center;
+    &.date-input-for-range_item-from {
+      margin-bottom: 10px;
+    }
+
+    .date-input-for-range_item-text {
+      margin: 0 10px;
+    }
+  }
+}

@@ -1,0 +1,36 @@
+@mixin layout-styles($layout) {
+  @if $layout == "vertical" {
+    flex-direction: column;
+    align-items: flex-start;
+    .sku-form_label {
+      margin-bottom: 5px;
+    }
+  } @else if $layout == "horizontal" {
+    flex-direction: row;
+    align-items: center;
+    .sku-form_label {
+      margin-right: 30px;
+    }
+  }
+}
+
+.sku-form {
+  @for $i from 1 through 40 {
+    .mb-#{$i} {
+      margin-bottom: #{$i}px;
+    }
+  }
+
+  $layouts: ("vertical", "horizontal");
+
+  @each $layout in $layouts {
+    .sku-form_item-#{$layout} {
+      display: flex;
+      @include layout-styles($layout);
+    }
+  }
+
+  .sku-form_item {
+    display: flex;
+  }
+}
