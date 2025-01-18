@@ -10,3 +10,7 @@
 
 - react react 相关框架封装
 - vue vue 相关框架封装
+
+## 更新日志
+
+- 2025-01-18[reactWithVite]: 初期构建完成，新建 react+vite，并初步封装表单验证
