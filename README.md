@@ -15,3 +15,4 @@
 
 - 2025-01-18[reactWithVite]: 初期构建完成，新建 react+vite，并初步封装表单验证
 - 2025-01-19[reactWithVite]: 第一版表单封装完成
+- 2025-01-19[reactWithVite]: 增加简单的 axios 封装示例
