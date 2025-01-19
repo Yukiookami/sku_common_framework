@@ -13,6 +13,11 @@ type NodeStrategyType = Record<string, () => React.ReactElement>;
 const FormCheckPage: React.FC = () => {
   const formListForRender = useRef(cloneDeep(skuFromList));
   const [formList, setFormList] = React.useState(formListForRender.current);
+  const [resShow, setResShow] = React.useState<string | null>(null);
+
+  const onSubmitSuccess = (e: string) => {
+    setResShow(JSON.stringify(e));
+  };
 
   useEffect(() => {
     const nodeStrategy: NodeStrategyType = {
@@ -36,7 +41,15 @@ const FormCheckPage: React.FC = () => {
 
   return (
     <Box className="form-check-page">
-      <SkuFormValidator mb={10} list={formList} layout="horizontal" />
+      <SkuFormValidator
+        mode="onSubmit"
+        mb={10}
+        list={formList}
+        layout="horizontal"
+        onSubmitSuccess={onSubmitSuccess}
+      />
+
+      <Box>{resShow}</Box>
     </Box>
   );
 };

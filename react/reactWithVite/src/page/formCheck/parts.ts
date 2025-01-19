@@ -1,9 +1,21 @@
 import { SkuFormValidatorList } from "../../type/components/SkuFormValidator";
+import { TestFunc } from "./uitils/testRule";
 
 export const skuFromList: SkuFormValidatorList[] = [
   {
     name: "datePicker",
     label: "日期选择",
+    rules: {
+      name: "datePicker",
+      type: "mixed",
+      test: [
+        {
+          testRuleName: "dateFomartCheckForRange",
+          message: "",
+          function: TestFunc.dataPicker.dateFomartCheckForRange,
+        },
+      ],
+    },
   },
   {
     name: "age",

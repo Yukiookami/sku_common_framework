@@ -30,4 +30,5 @@ export type DateInputProps = {
   showDay?: boolean;
   onGetDate?: (date: dataValue) => void;
   onChange?: (date: dataValue) => void;
+  error?: boolean;
 };

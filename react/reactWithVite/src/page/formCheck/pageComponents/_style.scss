@@ -25,12 +25,14 @@
   .date-input-for-range_item {
     display: flex;
     align-items: center;
-    &.date-input-for-range_item-from {
-      margin-bottom: 10px;
-    }
 
     .date-input-for-range_item-text {
       margin: 0 10px;
     }
+  }
+
+  .date-input-for-range_item-error {
+    height: 20px;
+    margin-bottom: 5px;
   }
 }

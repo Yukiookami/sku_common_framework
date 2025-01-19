@@ -13,7 +13,14 @@ import createYupSchema from "./rulesMaker.ts";
 
 const SkuFormValidator: React.FC<SkuFormValidatorProps> = forwardRef(
   (props, ref) => {
-    const { list, mb = 10, layout = "vertical" } = props;
+    const {
+      list,
+      mb = 10,
+      layout = "vertical",
+      mode = "all",
+      labelWidth = 100,
+      onSubmitSuccess,
+    } = props;
 
     const [ruleSchema, setRuleSchema] = React.useState<
       yup.ObjectSchema<{ [key: string]: unknown }>
@@ -39,7 +46,7 @@ const SkuFormValidator: React.FC<SkuFormValidatorProps> = forwardRef(
       handleSubmit,
       formState: { errors },
     } = useForm({
-      mode: "all",
+      mode: mode,
       reValidateMode: "onChange",
       resolver: ruleSchema && yupResolver(ruleSchema),
     });
@@ -59,7 +66,7 @@ const SkuFormValidator: React.FC<SkuFormValidatorProps> = forwardRef(
      * @param e
      */
     const onSubmit = (e: unknown) => {
-      console.log("submit", e);
+      onSubmitSuccess?.(e);
     };
 
     return (
@@ -76,7 +83,9 @@ const SkuFormValidator: React.FC<SkuFormValidatorProps> = forwardRef(
                     <Box className={`sku-form_item sku-form_item-${layout}`}>
                       {/* 标题，如果设置了label就显示 */}
                       {item.label ? (
-                        <Typography className="sku-form_label">
+                        <Typography
+                          className={`sku-form_label sku-form_label-width${labelWidth}`}
+                        >
                           {item.label}
                         </Typography>
                       ) : (

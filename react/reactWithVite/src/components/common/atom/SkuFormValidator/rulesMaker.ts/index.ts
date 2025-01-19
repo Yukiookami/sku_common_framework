@@ -64,13 +64,15 @@ const createYupSchema = (
         );
       }
 
-      // 如果是字符串类型并且有长度限制
-      if (rule.test) {
-        fieldSchema = fieldSchema.test(
-          "custom-test",
-          rule.test.message,
-          rule.test.function
-        );
+      // 自定义校验规则
+      if (rule.test && rule.test.length) {
+        rule.test.forEach((test) => {
+          fieldSchema = fieldSchema.test(
+            test.testRuleName,
+            test.message,
+            test.function
+          );
+        });
       }
 
       schema = schema.concat(

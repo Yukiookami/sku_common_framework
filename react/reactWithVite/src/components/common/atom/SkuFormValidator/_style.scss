@@ -33,4 +33,22 @@
   .sku-form_item {
     display: flex;
   }
+
+  @for $i from 1 through 400 {
+    .sku-form_label-width#{$i} {
+      width: #{$i}px;
+    }
+  }
+
+  .sku-form_submit {
+    margin-top: 20px;
+    width: 100%;
+    background-color: #409eff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 0;
+    cursor: pointer;
+    box-shadow: 0 2px 4px 0 rgba(64, 158, 255, 0.2);
+  }
 }
